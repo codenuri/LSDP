@@ -46,8 +46,10 @@ int main()
 	fs.write("AAA");
 
 	EncryptDecorator es(&fs);
-	es.write("AAA");
+	es.write("AAA"); // 1. 암호화 하는 기능 추가
+					 // 2. fs.write(암호화된 데이타전달)
 
 	ZipDecorator zs(&es);
-	zs.write("AAA");
+	zs.write("AAA"); // 1. 압축기능 수행
+					 // 2. es.write(압축된 데이타)
 }
