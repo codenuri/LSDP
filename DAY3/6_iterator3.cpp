@@ -78,6 +78,7 @@ public:
 int main()
 {
 	slist<int> s;
+
 	s.push_front(10);
 	s.push_front(20);
 	s.push_front(30);
@@ -91,3 +92,11 @@ int main()
 
 	} while (p->MoveNext());
 }
+
+// 위 방식의 문제점
+// 1. GetEnumerator 는 반복자를 new 로 만든다.
+// 
+// 2. MoveNext()와 GetObject()는 가상함수이다. 느리다.
+
+// 3. 모든 컨테이너가 동일한 방식이 아니다.
+//    "배열"은 MoveNext()가 아닌 ++p로 이동해야 한다.
