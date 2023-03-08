@@ -51,8 +51,8 @@ class Dialog
 public:
 	void init()
 	{
-		IButton* btn = new T::Button;
-		IEdit* edit  = new T::Edit;
+		IButton* btn = new  T::Button;
+		IEdit* edit  = new  T::Edit;
 
 		btn->Draw();
 		edit->Draw();
