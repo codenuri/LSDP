@@ -99,7 +99,6 @@ int main()
 	factory.Register(2, &Circle::Create);
 
 
-
 	while (1)
 	{
 		int cmd;
