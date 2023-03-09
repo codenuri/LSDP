@@ -12,8 +12,8 @@ class Window
 {
 	int handle;
 
-	Window* parent = 0;		// ºÎ¸ğÀ©µµ¿ì´Â ÇÑ°³
-	std::vector<Window*> v; // ÀÚ½ÄÀ©µµ¿ì´Â ¿©·¯°³
+	Window* parent = 0;		// ë¶€ëª¨ìœˆë„ìš°ëŠ” í•œê°œ
+	std::vector<Window*> v; // ìì‹ìœˆë„ìš°ëŠ” ì—¬ëŸ¬ê°œ
 
 public:
 
@@ -44,7 +44,7 @@ public:
 		{
 		case WM_LBUTTONDOWN: self->LButtonDown(); break;
 		case WM_KEYDOWN:
-			self->KeyDown();   \
+			self->KeyDown();   
 			break;
 		}
 		return 0;
@@ -79,7 +79,7 @@ int main()
 	ImageView view;
 	view.Create("view");
 
-	w.AddChild(&view); // ÀÚ½ÄÀ©µµ¿ì·Î ºÎÂø
+	w.AddChild(&view); // ìì‹ìœˆë„ìš°ë¡œ ë¶€ì°©
 
 	ec_process_message();
 }
