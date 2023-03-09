@@ -76,14 +76,19 @@ public:
 		return true;
 	}
 };
+
 class ImageView : public Window
 {
 public:
+
 	bool LButtonDown()
 	{
 		std::cout << "ImageView LButton" << std::endl;
-		return true;
+		
+		//return true; // 이벤트 처리 종료
+		return false;  // 부모윈도우에게도 발생된 이벤트를 전달해 달라.
 	}
+
 };
 
 int main()
@@ -98,3 +103,11 @@ int main()
 
 	ec_process_message();
 }
+
+// 위와 같이 이벤트를 부모윈도우에 보내는 것을
+
+// IOS : responder chain
+// WPF(C#) : bubbling event 라고 합니다.
+
+// 그 외에도
+// MFC의 메뉴 처리 (Command routing) 이 책임의 고리 패턴입니다.
