@@ -16,6 +16,21 @@ class TwiceVisitor : public IVisitor<T>
 public:
 	void visit(T& e) override { e *= 2; }
 };
+
+template<typename T>
+class ShowVisitor : public IVisitor<T>
+{
+public:
+	void visit(T& e) override { std::cout << e << std::endl; }
+};
+
+template<typename T>
+class ZeroVisitor : public IVisitor<T>
+{
+public:
+	void visit(T& e) override { e = 0; }
+};
+
 //-----------------------------
 // 방문자 패턴을 사용하는 모든 복합객체는 accept가 있어야 한다.
 template<typename T> struct IAccept
@@ -38,6 +53,8 @@ public:
 			v->visit(e);
 	}
 };
+
+
 int main()
 {
 	MyList<int> s = { 1,2,3,4,5,6,7,8,9,10 };
@@ -46,9 +63,13 @@ int main()
 	TwiceVisitor<int> tv; 
 	s.accept(&tv);		   	
 
-//	ShowVisitor<int> sv;   
-//	s.accept(&sv);
+	ShowVisitor<int> sv;   
+	s.accept(&sv);
 
+	ZeroVisitor<int> zv;
+	s.accept(&zv);
+
+	s.accept(&sv);
 }
 
 
